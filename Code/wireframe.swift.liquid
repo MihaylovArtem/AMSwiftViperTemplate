@@ -1,0 +1,34 @@
+//
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}, {{ module_info.name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+
+class {{ module_info.name }}Wireframe: NSObject {
+
+    static let shared = {{ module_info.name }}Wireframe()
+    private init() { super.init() }
+
+    lazy private var presenter = {{ module_info.name }}Presenter()
+    lazy private var router = {{ module_info.name }}Router()
+    lazy private var interactor = {{ module_info.name }}Interactor()
+    lazy private var viewController = {{ module_info.name }}ViewController(nibName: <# XIB name #>, bundle: nil)
+
+    static public func initModule() {
+
+        shared.presenter.view = shared.viewController
+        shared.presenter.router = shared.router
+
+        let interactor = {{ module_info.name }}Interactor()
+        shared.interactor.output = shared.presenter
+
+        shared.presenter.interactor = shared.interactor
+        shared.viewController.output = shared.presenter
+
+    }
+
+}
