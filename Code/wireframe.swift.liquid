@@ -8,27 +8,28 @@
 
 import UIKit
 
-class {{ module_info.name }}Wireframe: NSObject {
+class {{ prefix }}{{ module_info.name }}Wireframe: NSObject {
 
-    static let shared = {{ module_info.name }}Wireframe()
-    private init() { super.init() }
+    static let shared = {{ prefix }}{{ module_info.name }}Wireframe()
+    private override init() { super.init() }
 
-    lazy private var presenter = {{ module_info.name }}Presenter()
-    lazy private var router = {{ module_info.name }}Router()
-    lazy private var interactor = {{ module_info.name }}Interactor()
-    lazy private var viewController = {{ module_info.name }}ViewController(nibName: <# XIB name #>, bundle: nil)
+    lazy private var presenter = {{ prefix }}{{ module_info.name }}Presenter()
+    lazy private var router = {{ prefix }}{{ module_info.name }}Router()
+    lazy private var interactor = {{ prefix }}{{ module_info.name }}Interactor()
+    lazy private var view = {{ prefix }}{{ module_info.name }}ViewController(nibName: "<#XIB name#>", bundle: nil)
 
     static public func initModule() {
 
-        shared.presenter.view = shared.viewController
+        shared.presenter.view = shared.view
         shared.presenter.router = shared.router
-
-        let interactor = {{ module_info.name }}Interactor()
-        shared.interactor.output = shared.presenter
-
         shared.presenter.interactor = shared.interactor
-        shared.viewController.output = shared.presenter
 
+        shared.view.output = shared.presenter
+
+    }
+
+    static public var viewController: UIViewController {
+        return shared.view
     }
 
 }

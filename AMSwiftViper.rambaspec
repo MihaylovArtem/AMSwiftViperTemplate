@@ -1,8 +1,8 @@
 # Template information section
-name: "swifty_viper"
+name: "AMSwiftViper"
 summary: "Swift VIPER module template with UIViewController playing as a View."
-author: "Valeriy Popov"
-version: "0.1.0"
+author: "Artem Mihaylov"
+version: "0.1"
 license: "MIT"
 
 # The declarations for code files
@@ -14,7 +14,7 @@ code_files:
 - {name: View/ViewController.swift, path: Code/View/viewcontroller.swift.liquid}
 
 # Presenter layer
-- {name: Presenter/ModuleInput.swift, path: Code/Presenter/module_input.swift.liquid}
+- {name: Presenter/PresenterInput.swift, path: Code/Presenter/presenter_input.swift.liquid}
 - {name: Presenter/Presenter.swift, path: Code/Presenter/presenter.swift.liquid}
 
 # Interactor layer
