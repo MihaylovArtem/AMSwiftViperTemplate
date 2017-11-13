@@ -1,0 +1,36 @@
+//
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}, {{ module_info.name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import XCTest
+
+class {{ module_info.name }}ModuleWireframeTests: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+    }
+
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    func testInitModule() {
+        {{ module_info.name }}Wireframe.initModule()
+
+        XCTAssertNotNil({{ module_info.name }}Wireframe.view.output, "view is nil after configuration")
+        XCTAssertTrue({{ module_info.name }}Wireframe.output is {{ module_info.name }}Presenter, "output is not {{ module_info.name }}Presenter")
+
+        XCTAssertNotNil({{ module_info.name }}Wireframe.presenter.view, "view in {{ module_info.name }}Presenter is nil after configuration")
+        XCTAssertNotNil({{ module_info.name }}Wireframe.presenter.router, "router in {{ module_info.name }}Presenter is nil after configuration")
+        XCTAssertNotNil({{ module_info.name }}Wireframe.presenter.interactor, "interactor in {{ module_info.name }}Presenter is nil after configuration")
+
+        XCTAssertTrue({{ module_info.name }}Wireframe.presenter.view is {{ module_info.name }}ViewController, "router is not {{ module_info.name }}ViewController")
+        XCTAssertTrue({{ module_info.name }}Wireframe.presenter.router is {{ module_info.name }}Router, "router is not {{ module_info.name }}Router")
+        XCTAssertTrue({{ module_info.name }}Wireframe.presenter.interactor is {{ module_info.name }}Interactor, "router is not {{ module_info.name }}Interactor")
+    }
+
+}
