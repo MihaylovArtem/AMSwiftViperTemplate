@@ -10,28 +10,32 @@ import UIKit
 
 class {{ prefix }}{{ module_info.name }}Wireframe: NSObject {
 
-    static let shared = {{ prefix }}{{ module_info.name }}Wireframe()
-    private override init() { super.init() }
+    weak var {{ module_info.name | downcase }}ViewController: {{ prefix }}{{ module_info.name }}ViewController?
 
-    lazy var presenter = {{ prefix }}{{ module_info.name }}Presenter()
-    lazy var router = {{ prefix }}{{ module_info.name }}Router()
-    lazy var interactor = {{ prefix }}{{ module_info.name }}Interactor()
-    lazy var view = {{ prefix }}{{ module_info.name }}ViewController(nibName: "<#XIB name#>", bundle: nil)
-
-    static public func initModule() {
-
-        shared.presenter.view = shared.view
-        shared.presenter.router = shared.router
-        shared.presenter.interactor = shared.interactor
-
-        shared.view.presenter = shared.presenter
-
-        shared.view.presenter.viewDidConfigure()
-
+    func initModule() {
+        {{ module_info.name | downcase }}ViewController = UIStoryboard(name: "<#Storyboard name#>", bundle: nil).instantiateViewController(withIdentifier: "<#VC identifier#>") as? {{ prefix }}{{ module_info.name }}ViewController
+        configureModuleForViewInput(viewInput: {{ module_info.name | downcase }}ViewController)
     }
 
-    static public var viewController: UIViewController {
-        return shared.view
+    func configureModuleForViewInput<UIViewController>(viewInput: UIViewController) {
+        if let viewController = viewInput as? {{ prefix }}{{ module_info.name }}ViewController {
+            configure(viewController: viewController)
+        }
     }
+
+    private func configure(viewController: {{ prefix }}{{ module_info.name }}ViewController) {
+        let router = {{ prefix }}{{ module_info.name }}Router()
+
+        let presenter = {{ prefix }}{{ module_info.name }}Presenter()
+        presenter.view = viewController
+        presenter.router = router
+
+        let interactor = {{ prefix }}{{ module_info.name }}Interactor()
+        interactor.output = presenter
+
+        presenter.interactor = interactor
+        viewController.output = presenter
+    }
+
 
 }

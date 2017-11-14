@@ -8,15 +8,6 @@
 
 protocol {{ prefix }}{{ module_info.name }}ViewOutput {
 
-    /**
-        Notify presenter that module is configured (called in the end of Wireframe's initModule() function )
+    func viewIsReady()
 
-        Replaces viewDidLoad() method
-    */
-    func viewDidConfigure()
-
-    /**
-        Notify presenter that view's viewWillAppear function called
-    */
-    func viewWillAppear()
 }

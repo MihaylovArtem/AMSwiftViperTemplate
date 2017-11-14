@@ -19,19 +19,30 @@ class {{ prefix }}{{ module_info.name }}ModuleWireframeTests: XCTestCase {
         super.tearDown()
     }
 
-    func testInitModule() {
-        {{ prefix }}{{ module_info.name }}Wireframe.initModule()
+    func testConfigureModuleForViewController() {
+        let viewController = {{ prefix }}{{ module_info.name }}ViewControllerMock()
+        let wireframe = {{ prefix }}{{ module_info.name }}Wireframe()
 
-        XCTAssertNotNil({{ prefix }}{{ module_info.name }}Wireframe.view.output, "output in {{ prefix }}{{ module_info.name }}ViewController is nil after configuration")
-        XCTAssertTrue({{ prefix }}{{ module_info.name }}Wireframe.view.output is {{ prefix }}{{ module_info.name }}Presenter, "output is not {{ prefix }}{{ module_info.name }}Presenter")
+        wireframe.configureModuleForViewInput(viewInput: viewController)
 
-        XCTAssertNotNil({{ prefix }}{{ module_info.name }}Wireframe.presenter.view, "view in {{ prefix }}{{ module_info.name }}Presenter is nil after configuration")
-        XCTAssertNotNil({{ prefix }}{{ module_info.name }}Wireframe.presenter.router, "router in {{ prefix }}{{ module_info.name }}Presenter is nil after configuration")
-        XCTAssertNotNil({{ prefix }}{{ module_info.name }}Wireframe.presenter.interactor, "interactor in {{ prefix }}{{ module_info.name }}Presenter is nil after configuration")
+        XCTAssertNotNil(viewController.output, "{{ prefix }}{{ module_info.name }}ViewController is nil after configuration")
+        XCTAssertTrue(viewController.output is {{ prefix }}{{ module_info.name }}Presenter, "output is not {{ prefix }}{{ module_info.name }}Presenter")
 
-        XCTAssertTrue({{ prefix }}{{ module_info.name }}Wireframe.presenter.view is {{ prefix }}{{ module_info.name }}ViewController, "router is not {{ prefix }}{{ module_info.name }}ViewController")
-        XCTAssertTrue({{ prefix }}{{ module_info.name }}Wireframe.presenter.router is {{ prefix }}{{ module_info.name }}Router, "router is not {{ prefix }}{{ module_info.name }}Router")
-        XCTAssertTrue({{ prefix }}{{ module_info.name }}Wireframe.presenter.interactor is {{ prefix }}{{ module_info.name }}Interactor, "router is not {{ prefix }}{{ module_info.name }}Interactor")
+        let presenter: {{ prefix }}{{ module_info.name }}Presenter = viewController.output as! {{ prefix }}{{ module_info.name }}Presenter
+        XCTAssertNotNil(presenter.view, "view in {{ prefix }}{{ module_info.name }}Presenter is nil after configuration")
+        XCTAssertNotNil(presenter.router, "router in {{ prefix }}{{ module_info.name }}Presenter is nil after configuration")
+        XCTAssertTrue(presenter.router is {{ prefix }}{{ module_info.name }}Router, "router is not {{ prefix }}{{ module_info.name }}Router")
+
+        let interactor: {{ prefix }}{{ module_info.name }}Interactor = presenter.interactor as! {{ prefix }}{{ module_info.name }}Interactor
+        XCTAssertNotNil(interactor.output, "output in {{ prefix }}{{ module_info.name }}Interactor is nil after configuration")
     }
 
+    class {{ prefix }}{{ module_info.name }}ViewControllerMock: {{ prefix }}{{ module_info.name }}ViewController {
+
+        var setupInitialStateDidCall = false
+
+        override func setupInitialState() {
+            setupInitialStateDidCall = true
+        }
+    }
 }

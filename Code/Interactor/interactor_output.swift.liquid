@@ -6,8 +6,8 @@
 //  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
 //
 
-class {{ prefix }}{{ module_info.name }}Interactor: {{ prefix }}{{ module_info.name }}InteractorInput {
+import Foundation
 
-    weak var output: {{ prefix }}{{ module_info.name }}InteractorOutput!
+protocol {{ prefix }}{{ module_info.name }}InteractorOutput: class {
 
 }

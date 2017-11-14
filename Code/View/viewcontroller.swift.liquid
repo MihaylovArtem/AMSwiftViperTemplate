@@ -10,19 +10,18 @@ import UIKit
 
 class {{ prefix }}{{ module_info.name }}ViewController: UIViewController {
 
-    var presenter: ({{ prefix }}{{ module_info.name }}ViewOutput & {{ prefix }}{{ module_info.name }}ViewOutput)!
+    var output: {{ prefix }}{{ module_info.name }}ViewOutput!
 
-    // MARK: - Lifecycle methods
+    // MARK: Lifecycle methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        output.viewIsReady()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        presenter.viewWillAppear()
-    }
+    func setupInitialState() {
 
+    }
 }
 
 extension {{ prefix }}{{ module_info.name }}ViewController: {{ prefix }}{{module_info.name}}ViewInput {
