@@ -7,8 +7,9 @@
 //
 
 import XCTest
+@testable import {{ module_info.project_name }}
 
-class {{ module_info.name }}PresenterTest: XCTestCase {
+class {{ prefix }}{{ module_info.name }}PresenterTests: XCTestCase {
 
     override func setUp() {
         super.setUp()

@@ -24,9 +24,9 @@ class {{ prefix }}{{ module_info.name }}Wireframe: NSObject {
         shared.presenter.router = shared.router
         shared.presenter.interactor = shared.interactor
 
-        shared.view.output = shared.presenter
+        shared.view.presenter = shared.presenter
 
-        shared.view.output.viewDidConfigure()
+        shared.view.presenter.viewDidConfigure()
 
     }
 

@@ -7,8 +7,9 @@
 //
 
 import XCTest
+@testable import {{ module_info.project_name }}
 
-class {{ module_info.name }}InteractorTests: XCTestCase {
+class {{ prefix }}{{ module_info.name }}InteractorTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
@@ -19,5 +20,5 @@ class {{ module_info.name }}InteractorTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
 }

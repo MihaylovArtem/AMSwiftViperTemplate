@@ -9,9 +9,11 @@
 protocol {{ prefix }}{{ module_info.name }}ViewOutput {
 
     /**
-        Notify presenter that view's viewDidLoad function called
+        Notify presenter that module is configured (called in the end of Wireframe's initModule() function )
+
+        Replaces viewDidLoad() method
     */
-    func viewDidLoad()
+    func viewDidConfigure()
 
     /**
         Notify presenter that view's viewWillAppear function called
