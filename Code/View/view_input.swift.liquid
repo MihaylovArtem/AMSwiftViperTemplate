@@ -9,7 +9,7 @@
 protocol {{ prefix }}{{ module_info.name }}ViewInput: class {
 
     /// View's output (most likely presenter of this viper module)
-    var output: SLOffersListViewOutput! { get set }
+    var output: {{ prefix }}{{ module_info.name }}ViewOutput! { get set }
 
     /// Asks view to set initial state
     func setupInitialState()
