@@ -10,4 +10,7 @@ import Foundation
 
 protocol {{ prefix }}{{ module_info.name }}InteractorInput {
 
+    /// Interactor's output (most likely presenter of this viper module)
+    weak var output: {{ prefix }}{{ module_info.name }}InteractorOutput! { get set }
+
 }

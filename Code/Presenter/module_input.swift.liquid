@@ -8,4 +8,13 @@
 
 protocol {{ prefix }}{{ module_info.name }}ModuleInput: class {
 
+    /// Presenter's view (view controller of this viper module)
+    weak var view: {{ prefix }}{{ module_info.name }}ViewInput! { get set }
+
+    /// Presenter's interactor
+    var interactor: {{ prefix }}{{ module_info.name }}InteractorInput! { get set }
+
+    /// Presenter's router
+    var router: {{ prefix }}{{ module_info.name }}RouterInput! { get set }
+
 }
