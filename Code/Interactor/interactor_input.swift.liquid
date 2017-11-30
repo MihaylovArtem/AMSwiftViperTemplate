@@ -6,11 +6,9 @@
 //  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
 //
 
-import Foundation
-
 protocol {{ prefix }}{{ module_info.name }}InteractorInput {
 
-    /// Interactor's output (most likely presenter of this viper module)
+    /// Interactor's output
     weak var output: {{ prefix }}{{ module_info.name }}InteractorOutput! { get set }
 
 }
