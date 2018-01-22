@@ -7,25 +7,25 @@ license: "MIT"
 
 code_files:
 # View layer
-- {name: View/ViewInput.swift,  path: Code/View/view_input.swift.liquid}
-- {name: View/ViewOutput.swift, path: Code/View/view_output.swift.liquid}
-- {name: View/View.swift, path: Code/View/view.swift.liquid}
+- {name: View/ViewInput.swift,  path: Source/View/view_input.swift.liquid}
+- {name: View/ViewOutput.swift, path: Source/View/view_output.swift.liquid}
+- {name: View/View.swift, path: Source/View/view.swift.liquid}
 
 # Presenter layer
-- {name: Presenter/ModuleInput.swift, path: Code/Presenter/module_input.swift.liquid}
-- {name: Presenter/Presenter.swift, path: Code/Presenter/presenter.swift.liquid}
+- {name: Presenter/ModuleInput.swift, path: Source/Presenter/module_input.swift.liquid}
+- {name: Presenter/Presenter.swift, path: Source/Presenter/presenter.swift.liquid}
 
 # Interactor layer
-- {name: Interactor/InteractorInput.swift, path: Code/Interactor/interactor_input.swift.liquid}
-- {name: Interactor/InteractorOutput.swift, path: Code/Interactor/interactor_output.swift.liquid}
-- {name: Interactor/Interactor.swift, path: Code/Interactor/interactor.swift.liquid}
+- {name: Interactor/InteractorInput.swift, path: Source/Interactor/interactor_input.swift.liquid}
+- {name: Interactor/InteractorOutput.swift, path: Source/Interactor/interactor_output.swift.liquid}
+- {name: Interactor/Interactor.swift, path: Source/Interactor/interactor.swift.liquid}
 
 # Router layer
-- {name: Router/RouterInput.swift, path: Code/Router/router_input.swift.liquid}
-- {name: Router/Router.swift, path: Code/Router/router.swift.liquid}
+- {name: Router/RouterInput.swift, path: Source/Router/router_input.swift.liquid}
+- {name: Router/Router.swift, path: Source/Router/router.swift.liquid}
 
 # Wireframe
-- {name: Wireframe/Wireframe.swift, path: Code/Wireframe/wireframe.swift.liquid}
+- {name: Wireframe/Wireframe.swift, path: Source/Wireframe/wireframe.swift.liquid}
 
 test_files:
 

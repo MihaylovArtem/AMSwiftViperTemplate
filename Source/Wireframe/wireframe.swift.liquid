@@ -24,8 +24,8 @@ class {{ prefix }}{{ module_info.name }}Wireframe: NSObject {
 
     /// Module initialization, after calling this method, you can use viewController property to get access to module's view controller
     func initModule() -> UIViewController {
-        guard let view = customView ?? (UIStoryboard(name: <#Storyboard name#>, bundle: <#bundle#>).instantiateViewController(withIdentifier: <#VC identifier#>) as? {{ prefix }}{{ module_info.name }}ViewController) else {
-          print("Error: can't load view component for {{ prefix }}{{ module_info.name }} ")
+        guard let view = customView ?? (UIStoryboard(name: <#Storyboard name#>, bundle: <#bundle#>).instantiateViewController(withIdentifier: <#VC identifier#>) as? {{ prefix }}{{ module_info.name }}View) else {
+          print("Error: can't load view component for {{ prefix }}{{ module_info.name }}")
           return UIViewController()
         }
         let router = customRouter ?? {{ prefix }}{{ module_info.name }}Router()
