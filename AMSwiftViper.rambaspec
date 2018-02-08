@@ -12,7 +12,7 @@ code_files:
 - {name: View/View.swift, path: Source/View/view.swift.liquid}
 
 # Presenter layer
-- {name: Presenter/ModuleInput.swift, path: Source/Presenter/module_input.swift.liquid}
+- {name: Presenter/PresenterInput.swift, path: Source/Presenter/presenter_input.swift.liquid}
 - {name: Presenter/Presenter.swift, path: Source/Presenter/presenter.swift.liquid}
 
 # Interactor layer

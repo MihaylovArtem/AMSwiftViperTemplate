@@ -6,10 +6,10 @@
 //  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
 //
 
-protocol {{ prefix }}{{ module_info.name }}ModuleInput: class {
+protocol {{ prefix }}{{ module_info.name }}PresenterInput: class {
 
-    /// Presenter's view
-    weak var view: {{ prefix }}{{ module_info.name }}ViewInput! { get set }
+    /// VIPER module view controller
+    weak var view: (UIViewController & SLTest3ViewInput)! { get set }
 
     /// Presenter's interactor
     var interactor: {{ prefix }}{{ module_info.name }}InteractorInput! { get set }
